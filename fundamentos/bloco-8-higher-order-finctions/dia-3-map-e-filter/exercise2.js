@@ -61,37 +61,38 @@ const books = [
   },
 ];
 
-// Adicione o código do exercício aqui:
-
-
-// 1 - Encontre o nome da primeira pessoa autora do livro nascida no ano de 1947.
-// Dica: use a função find .
-const authorBornIn1947 = books.find((autora) =>autora.author.birthYear === 1947)
-console.log(authorBornIn1947.author.name);
-
-// 2 - Retorne o nome do livro de menor nome.
-// Dica: use a função forEach .
-function smallerName(livros) {
-  let nameBook;
-
-
-  // Variável nameBook que receberá o valor do menor nome;
-  return nameBook;
-}
-
-console.log(smallerName(books));
-
-// 3 - Encontre o primeiro livro cujo nome possui 26 caracteres.
-// const expectedResult = {
-//   author: {
-//     birthYear: 1948,
-//     name: 'George R. R. Martin',
+// const expectedResult = [
+//   {
+//     age: 31,
+//     author: 'Isaac Asimov',
 //   },
-//   genre: 'Fantasia',
-//   id: 1,
-//   name: 'As Crônicas de Gelo e Fogo',
-//   releaseYear: 1991,
-// };
+//   {
+//     age: 38,
+//     author: 'H. P. Lovecraft',
+//   },
+//   {
+//     age: 39,
+//     author: 'Stephen King',
+//   },
+//   {
+//     age: 43,
+//     author: 'George R. R. Martin',
+//   },
+//   {
+//     age: 45,
+//     author: 'Frank Herbert',
+//   },
+//   {
+//     age: 62,
+//     author: 'J. R. R. Tolkien',
+//   },
+// ];
 
-const getNamedBook = books.find((elemento) => elemento.name.length === 26)
-console.log(getNamedBook);
+// 2 - Construa um array de objetos a partir do array de livros. Cada objeto deve conter uma propriedade author , com o nome da pessoa autora do livro, e uma propriedade age com a idade dessa pessoa quando o livro foi lançado. O array deve ser ordenado por idade, ou seja, da pessoa mais jovem para a mais velha considerando suas idades quando o livro foi lançado.
+// Dica: use as funções map , filter
+const nameAndAge = books.map((elemento) =>{ 
+  return {age: elemento.releaseYear - elemento.author.birthYear, 
+    author: elemento.author.name
+  }
+});
+console.log(nameAndAge.sort((a,b) => a.age - b.age));

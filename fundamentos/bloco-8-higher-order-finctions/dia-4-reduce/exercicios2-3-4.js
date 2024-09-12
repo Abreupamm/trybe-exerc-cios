@@ -61,37 +61,35 @@ const books = [
   },
 ];
 
-// Adicione o código do exercício aqui:
+// 2 - Crie uma string com os nomes de todas as pessoas autoras.
+// const expectedResult = "George R. R. Martin, J. R. R. Tolkien, Isaac Asimov, Frank Herbert, Stephen King, H. P. Lovecraft.";
 
+const reduceNames = books.reduce((autores, livro) =>(autores === '') ? autores = livro.author.name : autores + `, ${livro.author.name}`,'')
+console.log(reduceNames);
 
-// 1 - Encontre o nome da primeira pessoa autora do livro nascida no ano de 1947.
-// Dica: use a função find .
-const authorBornIn1947 = books.find((autora) =>autora.author.birthYear === 1947)
-console.log(authorBornIn1947.author.name);
+// 3 - Calcule a média de idade que as pessoas autoras tinham quando seus respectivos livros foram lançados.
+// const expectedResult = 43;
 
-// 2 - Retorne o nome do livro de menor nome.
-// Dica: use a função forEach .
-function smallerName(livros) {
-  let nameBook;
+const averageAge = books.reduce((mediaIdade, livro) => {
+  const idade = livro.releaseYear - livro.author.birthYear;
+  mediaIdade += idade;
+  return mediaIdade 
+},0)
 
+console.log(averageAge / 6);
 
-  // Variável nameBook que receberá o valor do menor nome;
-  return nameBook;
-}
+// 4 - Encontre o livro com o maior nome.
 
-console.log(smallerName(books));
-
-// 3 - Encontre o primeiro livro cujo nome possui 26 caracteres.
 // const expectedResult = {
-//   author: {
-//     birthYear: 1948,
-//     name: 'George R. R. Martin',
-//   },
-//   genre: 'Fantasia',
 //   id: 1,
 //   name: 'As Crônicas de Gelo e Fogo',
+//   genre: 'Fantasia',
+//   author: {
+//     name: 'George R. R. Martin',
+//     birthYear: 1948,
+//   },
 //   releaseYear: 1991,
 // };
 
-const getNamedBook = books.find((elemento) => elemento.name.length === 26)
-console.log(getNamedBook);
+const longestNamedBook = books.reduce((maiorNome, livro) => (maiorNome.name.length < livro.name.length) ? maiorNome = livro : maiorNome = maiorNome)
+console.log(longestNamedBook);
