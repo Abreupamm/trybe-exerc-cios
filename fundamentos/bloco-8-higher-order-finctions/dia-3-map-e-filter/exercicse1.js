@@ -61,37 +61,17 @@ const books = [
   },
 ];
 
-// Adicione o código do exercício aqui:
+// 1 - Crie um array com strings no formato NOME_DO_LIVRO - GÊNERO_DO_LIVRO - NOME_DA_PESSOA_AUTORA
+// Dica: Use a função map
 
+// const expectedResult = [
+//   'As Crônicas de Gelo e Fogo - Fantasia - George R. R. Martin',
+//   'O Senhor dos Anéis - Fantasia - J. R. R. Tolkien',
+//   'Fundação - Ficção Científica - Isaac Asimov',
+//   'Duna - Ficção Científica - Frank Herbert',
+//   'A Coisa - Terror - Stephen King',
+//   'O Chamado de Cthulhu - Terror - H. P. Lovecraft',
+// ];
 
-// 1 - Encontre o nome da primeira pessoa autora do livro nascida no ano de 1947.
-// Dica: use a função find .
-const authorBornIn1947 = books.find((autora) =>autora.author.birthYear === 1947)
-console.log(authorBornIn1947.author.name);
-
-// 2 - Retorne o nome do livro de menor nome.
-// Dica: use a função forEach .
-function smallerName(livros) {
-  let nameBook;
-
-
-  // Variável nameBook que receberá o valor do menor nome;
-  return nameBook;
-}
-
-console.log(smallerName(books));
-
-// 3 - Encontre o primeiro livro cujo nome possui 26 caracteres.
-// const expectedResult = {
-//   author: {
-//     birthYear: 1948,
-//     name: 'George R. R. Martin',
-//   },
-//   genre: 'Fantasia',
-//   id: 1,
-//   name: 'As Crônicas de Gelo e Fogo',
-//   releaseYear: 1991,
-// };
-
-const getNamedBook = books.find((elemento) => elemento.name.length === 26)
-console.log(getNamedBook);
+const formatedBookNames = books.map((elemento) => `${elemento.name} - ${elemento.genre} - ${elemento.author.name}`)
+console.log(formatedBookNames);
